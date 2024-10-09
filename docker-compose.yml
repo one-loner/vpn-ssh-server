@@ -1,0 +1,17 @@
+---
+services:
+  openssh-server:
+    image: lscr.io/linuxserver/openssh-server:latest
+    container_name: vpn-ssh-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - USER_PASSWORD=<password>
+      - USER_NAME=vpnuser
+      - PASSWORD_ACCESS=true
+    volumes:
+      - /etc/ssh:/config
+    ports:
+      - 2222:2222
+    restart: always
