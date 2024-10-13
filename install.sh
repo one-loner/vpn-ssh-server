@@ -1,4 +1,6 @@
 #!/bin/bash
+apt-get update
+apt-get install -y docker docker-compose
 read -p "Enter pasword for access to server: " P
 sed -i "s|<password>|$P|g" docker-compose.yml
 docker-compose up -d
